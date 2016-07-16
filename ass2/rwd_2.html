@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    body
+    {
+      background-color: white;
+    }
+    
+    #div1
+    {
+     display:flex;
+      width:100%
+      height:460px;
+      background-color:white;
+      margin-top:30px;
+      z-index:1;
+    }
+    
+    #item1
+    {
+      display:flex;
+      height:330px;
+      width:35%;
+      justify-content:space-around;
+      background-color:  white;
+       
+    }
+    #item1a
+    {
+      background-image:url("header_image.jpg");
+      background-size:cover;
+      height:330px;
+      width:290px;
+      background-repeat:no-repeat;
+      margin-left:100px;
+    }
+    #image
+    {
+      height:110px;
+      width:290px;
+      background-color:  white;
+      margin-top:120px;
+    }
+   #item2
+   {
+     height:330px;
+     width:100%;  
+   }
+
+   #item2a
+   {
+      display:flex;
+      height:130px;
+      width:100%;
+      background-color:  white;
+    
+      margin-top:0px;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   #items1
+   {
+        height:80px;
+        width:320px;
+        background-color:  white;
+        box-sizing: border-box;
+        padding: 1px;
+        margin-left:10px;
+   }
+
+   #items2
+   {
+        height:80px;
+        width:320px;
+        background-color:  white;
+        box-sizing: border-box;
+        padding: 1px;
+        margin-left:10px;
+   }
+
+   #items3
+   {
+        height:80px;
+        width:320px;
+        background-color:  white;
+        box-sizing: border-box;
+        padding: 1px;
+        margin-right:150px;
+   }
+
+
+   #line
+   {
+     height:1px;
+     width:270px;
+     background-color: black;
+     margin-left:35px;
+   }
+   
+    #item2b
+   {
+      display:flex;
+      height:200px;
+      width:90%;
+      background-color:white;
+      margin-top:0px;
+      box-sizing: border-box;
+      padding: 5px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      flex-shrink: 1;
+   }
+
+    #spacing
+    {
+      width:10%;
+      height:200px;
+      background-color: white;
+      margin-left:90%;
+      margin-top:-200px;
+      flex-shrink: 5;
+    }
+   #heading
+   {
+        height:60px;
+        width:600px;
+        background-color:white;
+        padding: 0px;
+        margin-top:5px;
+        box-sizing: border-box;
+        margin-left:0px;   
+   }
+   
+   #help
+   {
+        height:60px;
+        width:100px;
+        background-color: white;
+        margin-left:10px;
+        margin-right:-350px;
+   }
+
+   #para
+   {
+     height:90px;
+     width:1140px;
+     background-color: white;
+     padding:15px;
+     margin-top:5px;
+     display: flex;
+   }
+
+
+    #div2
+    {
+      display: flex;
+      width:100%;
+      height:650px;
+      background-color:white;
+      margin-top:2px;
+    }
+
+
+    #empty2
+    {
+      width:700px;
+      background-color:white;
+      visibility: hidden;
+    }
+
+ 
+  
+    #block
+    {
+      width:100%;
+      background-color: white ;
+      display:flex;
+      flex-wrap: wrap; 
+    }
+
+
+    #blockdiv
+    {
+      width:100%;
+      height:70px;
+      background-color:  white ;
+      display:flex;
+    }
+
+
+    #linediv
+    {
+      height:1px;
+      background-color: black;
+      width:30%;
+      margin-top:35px;
+      margin-left: 80px;
+    }
+
+    #content
+    {
+      height:40px;
+      width:250px;
+      background-color:  white;
+      margin-left: 30px;
+      margin-top: 15px;
+      margin-right: 30px;
+      color: black;
+      padding: 2px;
+      box-sizing: border-box;
+      font-size: 25px;
+      font-family:Baskerville, Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
+      text-align: center;
+    } 
+
+    #pic
+    {
+      width:100%;
+      height: 240px;
+      background-color: white;
+      margin-top:-170px;
+      display: flex;
+      justify-content: space-around;
+      
+    }
+
+    #imagebox
+    {
+      width: 190px;
+      height:240px;
+      background-color:  white;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+   #empty1
+   {
+       width:440px;
+       height:100px;
+       background-color: white;
+       margin-top:-150px;
+       margin-left: 450px;
+       display: flex;
+       flex-wrap: wrap;
+   }
+
+  #linediv2
+  {
+    height: 1px;
+    width: 400px;
+    background-color: black;
+    margin-top:10px;
+    margin-left: 10px;
+  }
+ 
+  #contentdiv
+  {
+    width:350px;
+    height:60px;
+    background-color:white ;
+    margin:auto;
+  }
+
+  #names
+    {
+      height:60px;
+      width:190px;
+      background-color: white;
+      margin-top:0px;
+      color:maroon;
+      font-style: italic;
+      padding:10px;
+      box-sizing: border-box;
+      padding: 1px;
+    }
+
+    #jd1
+    {
+      height:180px;
+      width:190px;
+      background-image: url("p1.jpg");
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+
+    #jd2
+    {
+      height:180px;
+      width:190px;
+      background-image: url("p2.jpg");
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+
+    #jd3
+    {
+      height:180px;
+      width:190px;
+      background-image: url("p3.jpg");
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+
+    #jd4
+    {
+      height:180px;
+      width:190px;
+      background-image: url("p4.jpg");
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+
+    #jd5
+    {
+      height:180px;
+      width:190px;
+      background-image: url("p5.jpg");
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+
+    #jd6
+    {
+      height:180px;
+      width:190px;
+      background-image: url("p6.jpg");
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+
+
+
+
+@media screen and (max-width:1650px)
+  {
+
+
+    
+    #empty2
+    {
+       width: 25%;
+       visibility:visible;
+       background-color:white;
+       display: flex;
+       flex-direction: column;
+       box-sizing: border-box; 
+       margin-left:1%;
+    }
+
+    #items1
+   {
+        height:70px;
+        width:75%;
+        background-color:  white;
+        box-sizing: border-box;
+        padding: 1px;
+        margin-left:24%;
+        margin-top: 20px;
+   }
+
+   #items2
+   {
+        height:70px;
+        width:75%;
+        background-color:  white;
+        box-sizing: border-box;
+        padding: 1px;
+        margin-left:24%;
+        margin-top:10px;
+   }
+
+   #items3
+   {
+        height:70px;
+        width:75%;
+        background-color:  white;
+        box-sizing: border-box;
+        padding: 1px;
+        margin-left:24%;
+        margin-top: 10px;
+
+   }
+
+   #line
+   {
+     height:1px;
+     width:90%;
+     background-color: black;
+     margin-left:7%;
+   
+   }
+    #items
+   {
+        height:80px;
+        width:320px;
+        background-color:white;
+        box-sizing: border-box;
+        margin-left:30px;
+        margin-top:40px;
+   }
+
+
+     #item1a
+    {
+      background-image:url("header_image.jpg");
+      background-size:cover;
+      height:330px;
+      width:290px;
+      background-repeat:no-repeat;
+      margin-left:50px;
+    }
+      #item2a
+      {
+        display: none;
+      }
+
+      #item2b
+      {
+        margin-top: 50px;
+        height:250px;
+      }
+      #spacing
+      {
+        display: none;
+      }
+      #help
+      {
+        display: none;
+      }
+      #para
+      {
+        width:600px;
+        height: 140px;
+      }
+      #heading
+      {
+        height:50px;
+        width:600px;
+        padding: 0px;
+      }
+      h1
+      {
+        padding: 0px;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align:center;
+      }
+
+#pic
+    {
+      width:75%;
+      height: 70%;
+      background-color:white ;
+      margin-top:-30px;
+      margin-left: 130px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+  #imagebox
+    {
+      width:24%;
+      height:48%;
+      background-color:white ;
+      display: flex;
+      flex-wrap: wrap;
+      margin-left:1.2%;
+    }
+
+     #block
+    {
+      width:70%;
+      height:100%;
+      background-color: white ;
+      display:flex;
+      flex-wrap: wrap;
+      margin-left:50px; 
+    }
+     #blockdiv
+    {
+      width:80%;
+      height:70px;
+      background-color: white ;
+      margin-left:100px;
+    }
+
+   #linediv
+    {
+      height:1px;
+      background-color:block;
+      width:40%;
+      margin-left: 0px;
+    }
+
+    #content
+    {
+      height:40px;
+      width:300px;
+      background-color: white ;
+      margin-left: 30px;
+      margin-top: 15px;
+      margin-right: 30px;
+      color: black;
+      padding: 2px;
+      box-sizing: border-box;
+      font-size: 25px;
+      text-align: center;
+    }
+
+    #empty1
+   {
+       width:40%;
+       height:75px;
+       background-color: white;
+       margin-top:-30px;
+       margin-left:30%;
+       display: flex;
+       flex-wrap: wrap;
+   }
+
+  #linediv2
+  {
+    height: 1px;
+    width:85%;
+    background-color: black;
+    margin-top:10px;
+    margin-left:25px;
+  }
+ 
+  #contentdiv
+  {
+    width:350px;
+    height:60px;
+    background-color:white ;
+    margin:auto;
+  }
+
+    #names
+    {
+      height:25%;
+      width:100%;
+      background-color: white;
+      color:maroon;
+      font-style: italic;
+      box-sizing: border-box;
+    }
+
+#jd1
+    {
+     height:75%;
+      width:100%;
+    }
+
+    #jd2
+    {
+      height:75%;
+      width:100%;
+    }
+
+    #jd3
+    {
+      height:75%;
+      width:100%;
+    }
+
+    #jd4
+    {
+      height:75%;
+      width:100%;
+    }
+
+    #jd5
+    {
+      height:75%;
+      width:100%;
+    }
+
+    #jd6
+    {
+      height:75%;
+      width:100%;
+    }
+  }
+
+    
+
+  
+  
+  
+
+  </style>
+  
+</head>
+<body>
+  <div id="div1">
+   <div id="item1">
+    <div id="item1a">
+      <div id="image">
+        <img src="logo.png" style="margin-left:75px; margin-top:25px;">
+      </div>
+    </div>
+  </div>
+
+ <div id="item2">
+   <div id="item2a">
+     <div id="items1">
+        <pre style="font-size:15px; color:maroon;">                 THE
+        <strong>       WEBLOGUE</strong></pre>
+   <div id="line"></div>
+   </div>
+     <div id="items2"><pre style="font-size:15px; color:maroon;">                  BACK
+        <strong>         ISSUES</strong></pre>
+   <div id="line"></div></div>
+     <div id="items3"><pre style="font-size:15px; color:maroon;">                  ABOUT
+        <strong>        OUR PAPER</strong></pre>
+   <div id="line"></div>
+   </div>
+   </div>
+   <div id="item2b">
+   <div id="help"></div>
+      <div id="heading">
+     <h1 ><q>Give me problems, give me <span style="font-style:italic;">work</span>.</q></h1>
+     </div> 
+     <div id="para">
+        In the year 1878 I took my degree of Doctor of Medicine of the University of London, and proceeded to Netley to go through the course prescribed for surgeons in the army. 
+     Having completed my studies there, I was duly attached to the Fifth Northumberland Fusiliers as Assistant Surgeon. The regiment was stationed in India at the time,and 
+     before I could join it, the second Afghan war had broken out.On landing at Bombay, I learned that my corps had advanced through the passes, and was already deep in the 
+     enemy’s country.
+     </div>
+     </div>
+     <div id="spacing"></div>
+   </div>
+  </div>
+
+
+ <div id="div2">
+ <div id="empty2">
+   <div id="items1" >
+        <pre style="font-size:15px; color:maroon;">                  THE
+        <strong>        WEBLOGUE</strong></pre>
+   <div id="line" style="margin-left:25px;"></div>
+   </div>
+     <div id="items2" ><pre style="font-size:15px; color:maroon;">                  BACK
+        <strong>         ISSUES</strong></pre>
+   <div id="line"></div></div>
+     <div id="items3" ><pre style="font-size:15px; color:maroon;">                  ABOUT
+        <strong>        OUR PAPER</strong></pre>
+   <div id="line"></div>
+   </div>
+ </div>
+  <div id="block">
+    <div id="blockdiv">
+      <div id="linediv"></div>
+      <div id="content">
+        victors & villains
+      </div>
+     <div id="linediv"></div>
+    </div>
+    <div id="pic">
+      <div id="imagebox">
+      <div id="jd2"></div>
+      <div id="names">
+      <p align="center">SHERLOCK<br>
+      <strong>HOLMES</strong></p>
+      </div>
+      </div>
+ 
+  <div id="imagebox">
+      <div id="jd4"></div>
+      <div id="names">
+        <p align="center">DR JOHN HEMISH<br>
+      <strong>WATSON</strong></p>
+      </div>
+      </div>
+      
+   <div id="imagebox">
+      <div id="jd6"></div>
+      <div id="names">
+         <p align="center">MYCROFT<br>
+      <strong>HOLMES</strong></p>
+      </div>
+      </div>
+
+   <div id="imagebox">
+      <div id="jd3"></div>
+      <div id="names">
+         <p align="center">PROF JAMES<br>
+      <strong>MORIARITY</strong></p>
+      </div>
+      </div>
+
+   <div id="imagebox">
+      <div id="jd1"></div>
+      <div id="names">
+         <p align="center">IRENE<br>
+      <strong>EDLER</strong></p>
+      </div>
+      </div>
+
+   <div id="imagebox">
+      <div id="jd5"></div>
+      <div id="names">
+         <p align="center">JAMES<br>
+      <strong>WINTER</strong></p>
+      </div>
+      </div>
+      </div>
+      
+          <div id="empty1">
+          <div id="linediv2"></div>
+          <div id="contentdiv">
+            <p align="center" style="font-size:13px">Illustrations by <span style="color:maroon;">Sidney Paget</span>, words by <span style="color:maroon;">Sir Arthur Conan Doyle</span>.<br>
+            What remains is by <span style="color:maroon;">Ethan Marcotte</span></p>
+          </div>
+        </div>
+       
+    
+    </div>
+  </div>
+  </div>
+</body>
+</html>

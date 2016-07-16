@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        body
+        {
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+<input id ="newtodo" type="text">
+<button id="addtodo" onclick="addTodo()">Add TODO </button>
+<button id="clear" onclick="clear_func()"> CLEAR </button>
+<ul id="mytodos" style="list-style-type:none;">
+</ul>
+<script>
+
+var todos=[];
+   window.onload = function () {
+        showTodos();
+    };
+
+    function addTodo() {
+
+        var obj={};
+        obj.data = document.getElementById('newtodo').value;
+        obj.done = false;
+        todos.push(obj);
+        localStorage.setItem('todos',JSON.stringify(todos));
+        showTodos();
+    }
+
+
+    function showTodos()
+    {
+       var todotoshow='';
+        var todolist = localStorage.getItem('todos');
+        if(todolist!=null)
+            todos = JSON.parse(todolist);
+
+        else
+            return ;
+
+        for(var x=0;x<todos.length;x++)
+        {
+            if(todos[x].done==false)
+                todotoshow += '<li>' + '<input type="checkbox" class="abc"   onclick="func()" >' + todos[x].data + '</li>';
+
+            else
+                todotoshow+='<li style="text-decoration:line-through">' + '<input  class="abc"  type="checkbox" checked >' + todos[x].data + '</li>';
+        }
+
+        document.getElementById('mytodos').innerHTML=todotoshow;
+    }
+
+    function func(){
+        var el = document.getElementsByClassName('abc');
+        var x = 0;
+        console.log(el.length);
+        while (x < el.length)
+        {
+
+            if(el[x].checked==true)
+            {
+                console.log(todos[x].data);
+                todos[x].done=true;
+                var parent= el[x].parentNode;
+                parent.setAttribute('style' , 'text-decoration:line-through');
+            }
+            x++;
+        }
+
+        localStorage.removeItem('todos');
+        localStorage.setItem('todos',JSON.stringify(todos));
+    }
+
+    function clear_func()
+    {
+        var arr=[];
+        var todotoshow='';
+        var todolist=localStorage.getItem('todos');
+        if(todolist!=null)
+            todos=JSON.parse(todolist);
+        else return;
+        for(var i=0;i<todos.length;i++)
+        {
+            if(todos[i].done==false)
+            {
+                todotoshow+= '<li>' + '<input type="checkbox" class="abc"  onclick="func()" >' + todos[i].data + '</li>';
+                var obj=todos[i];
+                arr.push(obj);
+            }
+        }
+        localStorage.removeItem('todos');
+        localStorage.setItem('todos',arr);
+        todos=arr;
+        document.getElementById('mytodos').innerHTML = todotoshow;
+
+    }
+</script>
+</body>
+</html>

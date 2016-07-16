@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    body
+    {
+      background-color:white;
+    }
+    
+    #container
+    {
+      position:relative;
+      height:1000px;
+      width:1000px;
+      background-color:white;
+    }
+    
+    #food
+    {
+      position:absolute;
+      height:15px;
+      width:15px;
+      border-radius:10px;
+      background-color:pink;
+    }
+    #path2
+    {
+      position:absolute;
+      height:75px;
+      width:100px;
+      background-color:white;
+         animation-name:move2;
+      animation-duration:8s;
+       animation-iteration-count:10;
+      animation-timing-function:linear;
+      z-index:1;
+    }
+    #path1
+    {
+      position:absolute;
+      height:75px;
+      width:100px;
+       background-color:white;
+      animation-name:move;
+      animation-duration:8s;
+       animation-iteration-count:10;
+      animation-timing-function:linear;
+    }
+    #pacman1
+    {
+      position:absolute;
+      height:0px;
+      width:0px;
+      margin-left:55px;
+      margin-top:30px;
+      border:20px solid red;
+      border-radius:50px;
+      border-right-color:transparent; 
+      animation-name:myanim;
+      animation-duration:0.8s;
+      animation-iteration-count:infinite;
+    }
+      #pacman2
+    {
+      position:absolute;
+       margin-left:55px;
+      margin-top:30px;
+      height:0px;
+      width:0px;
+      border:20px solid red;
+      border-radius:50px;
+      border-right-color:transparent; 
+      animation-name:myanim;
+      animation-duration:0.8s;
+      animation-direction:reverse;
+      animation-iteration-count:infinite;
+ 
+    }
+    
+    @keyframes myanim
+    {
+      from
+      {
+        transform:rotate(-85deg);
+        /*transform:rotate(-75deg);*/
+      }
+      to
+      {
+        transform:rotate(45deg);
+      }
+    }
+    
+    
+    @keyframes move
+    {
+       0%{
+    transform:scaleX(1);
+    margin-left:0px;
+  }
+  49.99%{
+    margin-left:800px;
+    transform:scaleX(1);
+  }
+  50%{
+    margin-left:800px;
+    transform:scaleX(-1);
+  }
+      
+      99.99%
+      {
+        margin-left:0px;
+        transform:scaleX(-1);
+      }
+      
+  100%{
+    margin-left:0px;
+    transform:scaleX(1);
+    }
+ }
+     
+    
+    @keyframes move2
+    {
+      
+      0%
+      {
+        width:100px;
+      }
+      50%
+      {
+        width:900px;
+      }
+      100%
+      {
+        width:900px;
+      }
+   
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+       <div id="food" style="left:300px; top:45px"></div>
+      <div id="food" style="left:330px; top:45px"></div>
+      <div id="food" style="left:360px; top:45px"></div>
+      <div id="food" style="left:390px; top:45px"></div>
+       <div id="food" style="left:420px; top:45px"></div>
+       <div id="food" style="left:450px; top:45px"></div>
+       <div id="food" style="left:480px; top:45px"></div>
+    <div id="food" style="left:510px;top:45px;"></div>
+    <div id="food" style="left:540px;top:45px;"></div>
+    <div id="food" style="left:570px;top:45px;"></div>
+    <div id="food" style="left:600px;top:45px;"></div>
+    <div id="food" style="left:630px;top:45px;"></div>
+    <div id="path2">
+    <div id="path1">
+  <div id="pacman1"></div>
+  <div id="pacman2"></div>
+  </div>
+    </div>
+  </div>
+</body>
+</html>

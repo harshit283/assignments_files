@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        #box
+        {
+            position:relative;
+            height:380px;
+            width:400px;
+            background-color:#9dd2ea;
+            margin-left:200px;
+            margin-top:50px;
+            box-shadow:0px 8px 2px grey;
+        }
+        #screen
+        {
+            position:absolute;
+            height:60px;
+            width:350px;
+            background-color:rgba(0, 0, 0, 0.2);
+            box-shadow:0px 2px 5px grey;
+            margin-left:25px;
+            margin-top:8px;
+            padding-bottom:30px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+
+
+        #text
+        {
+            color:white;
+            font-style: italic;
+            font-weight:bold;
+            font-size:30px;
+            text-align:right;
+        }
+        .button {
+            position:absolute;
+            width:20px;
+            padding: 15px 25px;
+            display:inline-block;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration:none;
+            outline:none;
+            color: black;
+            background-color:#ffcce0;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 8px #999;
+        }
+
+        .button:hover {background-color: #ff99c2}
+
+
+        #color
+        {
+            position:absolute;
+            width:20px;
+            padding: 15px 25px;
+            display:inline-block;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration:none;
+            outline:none;
+            color: black;
+            background-color:#ff5050;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 8px #999;
+        }
+
+        #color:hover
+        {
+            background-color: red;
+        }
+        #color:active
+        {
+            background-color: #ff3333;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .button:active {
+            background-color: #ff99c2;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+
+</head>
+<body>
+<div id="box">
+    <div id='screen'>
+        <p id="text"></p>
+    </div>
+    <div id="color"  onclick="myFunction('C')" style="margin-left:310px; margin-top:290px;">C</div>
+    <div class="button" onclick="myFunction('7')" style="margin-top:80px; margin-left:10px">7</div>
+    <div class="button" onclick="myFunction('8')" style="margin-top:80px; margin-left:85px">8</div>
+    <div class="button" onclick="myFunction('9')"  style="margin-top:80px; margin-left:160px;">9</div>
+    <div class="button" onclick="myFunction('/')" style="margin-top:80px; margin-left:235px">/</div>
+    <div class="button" onclick="myFunction('4')" style="margin-left:10px; margin-top:150px;">4</div>
+    <div class="button" onclick="myFunction('5')"  style="margin-left:85px; margin-top:150px;">5</div>
+    <div class="button" onclick="myFunction('6')"  style="margin-left:160px; margin-top:150px;">6</div>
+    <div class="button" onclick="myFunction('*')"  style="margin-left:235px; margin-top:150px;">*</div>
+    <div class="button"  onclick="myFunction('1')" style="margin-left:10px; margin-top:220px;">1</div>
+    <div class="button" onclick="myFunction('2')"  style="margin-left:85px; margin-top:220px;">2</div>
+    <div class="button" onclick="myFunction('3')"  style="margin-left:160px; margin-top:220px;">3</div>
+    <div class="button"  onclick="myFunction('+')" style="margin-left:235px; margin-top:220px;">+</div>
+    <div class="button" onclick="myFunction('0')"  style="margin-left:10px; margin-top:290px;">0</div>
+    <div class="button" onclick="myFunction('.')"  style="margin-left:85px; margin-top:290px;">.</div>
+    <div class="button" onclick="myFunction('=')"  style="margin-left:160px; margin-top:290px;">=</div>
+    <div class="button"  onclick="myFunction('-')" style="margin-left:235px; margin-top:290px;">-</div>
+    <script>
+        var str1 = '';
+        var operand;
+        var str2 = '';
+        var flag=0;
+        var str3 = '';
+        var num1,num2,num3;
+        var flag2=0;
+        function myFunction(ch) {
+
+
+
+            if(flag2==0 && (ch=='+' || ch=='/' || ch=='-' || ch=='*'))
+            {
+                document.getElementById('text').innerHTML='Invalid Syntax';
+                flag2--;
+            }
+
+            else if(ch=='C')
+            {
+                str1='';
+                str2='';
+                flag=0;
+                flag2=0;
+                document.getElementById('text').innerHTML='0';
+                document.getElementById('text').innerHTML='0';
+            }
+
+            else if(flag!=0 && ch!='*' && ch!='/' && ch!='-' && ch!='+' && ch!='=')
+            {
+                str2+=ch;
+                document.getElementById('text').innerHTML=str2;
+            }
+
+            else if(ch!='*' && ch!='/' && ch!='-' && ch!='+' && ch!='=')
+            {
+                flag2=flag2+1;
+                str1+=ch;
+                document.getElementById('text').innerHTML=str1;
+            }
+
+            else if(ch=='*' || ch=='/' || ch=='-' || ch=='+' )
+            {
+                operand=ch;
+                document.getElementById('text').innerHTML=operand;
+                flag++;
+            }
+
+            else
+            {
+                num1=Number(str1);
+                num2=Number(str2);
+                if(operand =='/')
+                {
+                    num3=num1/num2;
+                    num3=num3.toFixed(5);
+                }
+                else if(operand=='*')
+                {
+                    num3=num1*num2;
+                    num3=num3.toFixed(5);
+                }
+                else if(operand=='+')
+                {
+                    num3=num1+num2;
+                    num3=num3.toFixed(5);
+                }
+                else
+                {
+                    num3=num1-num2;
+                    num3=num3.toFixed(5);
+                }
+
+
+                var x=num3;
+                x=Math.floor(x);
+
+                if(num3 != x)
+                {
+                    document.getElementById('text').innerHTML=num3.toString();
+                }
+
+                else if(num3==x)
+                {
+                    document.getElementById('text').innerHTML=x.toString();
+                }
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
