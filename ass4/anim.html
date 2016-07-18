@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        #box
+        {
+            height:300px;
+            width:300px;
+            background-color:red;
+            position: relative;
+        }
+        body
+        {
+            background-color:yellow;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<br>
+<button id="clickme" type="button">START</button>
+<button id="press" type="button">STOP</button>
+<script>
+
+
+    document.getElementById('clickme').onclick = func;
+    document.getElementById('press').onclick = stop;
+    var pos=0;
+    var box=document.getElementById('box');
+    var par;
+    var state=false;
+    function func()
+    {
+        par = setInterval(anim, 2);
+
+        function anim()
+        {
+            if(state==false)
+            {
+                pos+=2;
+                if(pos >= window.innerWidth - 300)
+                     state=true;
+                else box.style.left=pos + 'px';
+            }
+            else{
+                pos=pos-2;
+                if(pos <= 0)
+                    state=false;
+                else box.style.left = pos +'px';
+            }
+        }
+    }
+
+    function stop()
+    {
+        clearInterval(par);
+    }
+
+
+
+</script>
+</body>
+</html>

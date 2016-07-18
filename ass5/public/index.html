@@ -1,0 +1,80 @@
+<html>
+<head>
+    <style>
+        body
+        {
+            font-size:25px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="name">
+<button type="button" id="press">ADD</button>
+<button type ="button" id="clear">CLEAR</button>
+<ul id ="msg" style="list-style-type:none"></ul>
+<script src="jquery.js"></script>
+<script>
+
+    var arr=[];
+    $("#press").click(function()
+    {
+        var obj ={};
+        obj.data = $("#name").val();
+        obj.done=0;
+        $.post('/addtodo' , obj,function (data , status) {
+
+            arr.push(data[data.length-1]);
+            var ans='';
+            for(var x=0;x<arr.length;x++)
+            {
+                if(arr[x].done==false)
+                    ans+='<li>' + '<input type="checkbox" class="abc" onclick="func()">' + arr[x].data + '</li>';
+                else
+                    ans+='<li style="text-decoration:line-through">'+'<input type="checkbox" class="abc" checked>'+ arr[x].data+'</li>';
+            }
+
+
+            $("#msg").html(ans);
+        });
+    });
+
+
+    function func()
+    {
+
+        var els = $(".abc");
+        for(var i=0;i<els.length;i++)
+        {
+
+            if(els[i].checked==true && arr[i].done==false)
+            {
+                arr[i].done = 1;
+                $(".abc").eq(i).parent().css("text-decoration" , "line-through");
+
+            }
+        }
+
+
+    }
+
+    $("#clear").click( function() {
+
+        var temp_arr=[];
+        var ans='';
+        for(var i=0;i<arr.length;i++)
+        {
+            if(arr[i].done==false)
+            {
+                ans+='<li>' + '<input type="checkbox" class="abc" onclick="func()">' + arr[i].data + '</li>';
+                temp_arr.push(arr[i]);
+            }
+        }
+        arr =  temp_arr;
+        $("#msg").html(ans);
+    });
+
+
+</script>
+</body>
+</html>
+
